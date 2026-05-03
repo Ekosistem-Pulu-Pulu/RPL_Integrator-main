@@ -44,8 +44,8 @@ router.all(['/:service', '/:service/*subPath'], async (req, res) => {
         targetUrl = process.env.SMARTBANK_URL || 'http://localhost:4001';
     } else if (service === 'marketplace') {
         targetUrl = process.env.MARKETPLACE_URL || 'http://localhost:4002';
-    } else if (service === 'akademik') {
-        targetUrl = process.env.AKADEMIK_URL || 'http://localhost:4003';
+    } else if (service === 'logistik') {
+        targetUrl = process.env.LOGISTIK_URL || 'http://localhost:4003';
     }
 
     if (!targetUrl) return res.status(404).json({ message: 'Service tujuan tidak terdaftar di API Gateway' });

@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const jwt = require('jsonwebtoken'); 
+const cors = require('cors');
 const loggerMiddleware = require('./middleware/logger');
 const validateRequest = require('./middleware/auth');
 const gatewayRoutes = require('./routes/gateway');
@@ -12,6 +13,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+app.use(cors());
 app.use(express.json());
 // Folder public digunakan untuk menyimpan file statis seperti PDF dokumentasi
 app.use(express.static('public'));
